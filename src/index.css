@@ -5,5 +5,65 @@
 html, body, #root {
   margin: 0;
   padding: 0;
-  background: black;
+  background: #020617;
+  scroll-behavior: smooth;
 }
+
+/* Dot grid overlay */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-inner { animation: marquee 32s linear infinite; }
+
+/* Orbital rings */
+@keyframes rotate-cw  { to { transform: rotate(360deg);  } }
+@keyframes rotate-ccw { to { transform: rotate(-360deg); } }
+.orbit-slow   { animation: rotate-cw  22s linear infinite; }
+.orbit-medium { animation: rotate-ccw 15s linear infinite; }
+.orbit-fast   { animation: rotate-cw   9s linear infinite; }
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0);     }
+  50%       { transform: translateY(-14px); }
+}
+.float-anim { animation: float 6s ease-in-out infinite; }
+
+/* Hero entrance */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.hero-1 { animation: fade-up 0.7s ease 0.1s both; }
+.hero-2 { animation: fade-up 0.7s ease 0.25s both; }
+.hero-3 { animation: fade-up 0.7s ease 0.4s both; }
+.hero-4 { animation: fade-up 0.7s ease 0.55s both; }
+.hero-5 { animation: fade-up 0.7s ease 0.7s both; }
+
+/* Gradient border shimmer */
+@keyframes border-spin {
+  to { --angle: 360deg; }
+}
+
+/* SVG dashed-line flow */
+@keyframes flow-dash {
+  to { stroke-dashoffset: -24; }
+}
+.flow-dash      { animation: flow-dash 1.8s linear infinite;       }
+.flow-dash-slow { animation: flow-dash 3.0s linear infinite;       }
+.flow-dash-rev  { animation: flow-dash 2.4s linear infinite reverse; }
+
+/* Pulse ring around the orchestrator */
+@keyframes pulse-soft {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  80%  { transform: scale(1.6);  opacity: 0;    }
+  100% { transform: scale(1.6);  opacity: 0;    }
+}
+.pulse-soft { animation: pulse-soft 2.6s ease-out infinite; transform-origin: center; }
